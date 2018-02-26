@@ -22,15 +22,15 @@ using namespace std;
 
 int main(int argc, char* argv[]){
 
-DSString* ssss= new DSString(argv[1]);
+DSString* ssss= new DSString(argv[2]);
 if(*ssss=="-c")
 {
         ifstream TestData;
         ifstream OurData;
         fstream classify;
 
-        TestData.open(argv[2],ios::in);
-        OurData.open(argv[3],ios::in);
+        TestData.open(argv[3],ios::in);
+        OurData.open(argv[4],ios::in);
         //Classify.open(argv[4],ios::out);
         vec<DSString> theVec;
         Tweet* t;
@@ -68,7 +68,7 @@ if(*ssss=="-c")
             }
         }
         OurData.close();
-        classify.open(argv[4],ios::out);
+        classify.open(argv[5],ios::out);
         while(!TestData.eof())
         {
             if(!TestData.eof()){
@@ -129,8 +129,8 @@ if(*ssss=="-c")
         char TTargetPos[164];
 
 
-        TrainData.open(argv[2],ios::in);
-        TrainTarget.open(argv[3],ios::in);
+        TrainData.open(argv[3],ios::in);
+        TrainTarget.open(argv[4],ios::in);
 
         if(!TrainData.is_open()) {
             cout << "Training file did not open." << endl;
@@ -182,7 +182,7 @@ if(*ssss=="-c")
             }
         }
         fstream outputter;
-        outputter.open(argv[4],ios::out);
+        outputter.open(argv[5],ios::out);
         for(int i=0;i<vv.size();i++)
         {
             outputter << vv[i]<<endl;
